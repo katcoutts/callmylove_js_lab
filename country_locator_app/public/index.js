@@ -1,5 +1,6 @@
 var countries;
 var countryName;
+var map;
 
 var requestComplete = function(){
   if(this.status !== 200) return;
@@ -18,6 +19,10 @@ var requestComplete = function(){
   console.log(callingCode);
   var timeZone = country(countryName).timezones;
   console.log(timeZone);
+  var callingCodeText = document.getElementById('calling-code');
+  callingCodeText.innerText = callingCode;
+  var timeZoneText = document.getElementById('time-zone');
+  timeZoneText.innerText = timeZone;
 }
 
 
@@ -32,7 +37,51 @@ var makeRequest = function(url, callback){
 var app = function(){
   var url = "http://localhost:5000";
   countryName = "Russia";
-  makeRequest(url, requestComplete);
+  var button = document.querySelector('button');
+  button.onclick = function(){
+    var input = document.getElementById('inputText').value;
+    countryName = input;
+    console.log(countryName);
+    makeRequest(url, requestComplete)
+  } 
+  var container = document.getElementById('map');
+  var center = { lat: 55.945101, lng: -3.162346}
+  var zoom = 15;
+  map = new Map (container, center, zoom);
+
 }
 
 window.onload = app;
+
+
+
+// var map;
+
+// var handleArthurButtonClick = function(){
+//  var coords = {  lat: 55.945101, lng: -3.162346};
+//  map.addListener(coords);
+// }
+
+// var handleMyCurrentLocationClick = function(){
+//  navigator.geolocation.getCurrentPosition(function(position){
+//    map.addListener({lat: position.coords.latitude, lng:position.coords.longitude})
+//  });
+// }
+
+
+// var initialize = function(){
+//  var container = document.getElementById('map');
+//  var center = { lat: 55.945101, lng: -3.162346}
+//  var zoom = 15;
+//  map = new Map (container, center, zoom);
+
+//  var arthurButton = document.getElementById("take-me-to-the-top-of-edinburgh");
+//  arthurButton.onclick = handleArthurButtonClick;
+
+//  var currentLocationButton = document.getElementById("where-am-i");
+//  currentLocationButton.onclick = handleMyCurrentLocationClick;
+
+//  map.addMarker(center);
+//  map.addClickEvent();
+ 
+// }

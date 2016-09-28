@@ -3,10 +3,24 @@
   <head>
     <title>Country App</title>
     <script src='index.js'></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="map.js"></script>
   </head>
   <body>
     <h1>Countries</h1>
     <ul id='country-list'>
     </ul>
+    <p>Where is your wo/man?</p>
+    <input type="text" id="inputText"/>
+    <button>Submit</button>
+    <div>
+    <p>The calling code is:</p>
+    <textbox id="calling-code"></textbox>
+    </div>
+    <div>
+    <p>The timezone is:</p>
+    <textbox id="time-zone"></textbox>
+    </div>
+    <div id='map'></div>
   </body>
 </html>
