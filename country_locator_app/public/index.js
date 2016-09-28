@@ -23,6 +23,17 @@ var requestComplete = function(){
   callingCodeText.innerText = callingCode;
   var timeZoneText = document.getElementById('time-zone');
   timeZoneText.innerText = timeZone;
+
+  var container = document.getElementById('map');
+  var laT = country(countryName).latlng[0];
+  var lnG = country(countryName).latlng[1];
+  var center = { lat: laT, lng: lnG };
+  var zoom = 3;
+  map = new Map (container, center, zoom);
+  map.addMarker(center);
+  navigator.geolocation.getCurrentPosition(function(position){
+    map.addMarker({lat: position.coords.latitude, lng: position.coords.longitude});
+  })
 }
 
 
@@ -44,10 +55,7 @@ var app = function(){
     console.log(countryName);
     makeRequest(url, requestComplete)
   } 
-  var container = document.getElementById('map');
-  var center = { lat: 55.945101, lng: -3.162346}
-  var zoom = 15;
-  map = new Map (container, center, zoom);
+
 
 }
 

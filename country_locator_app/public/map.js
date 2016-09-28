@@ -13,9 +13,8 @@ var Map = function(container, coords, zoom){
    var marker = new google.maps.Marker({
      position: coords,
      map: this.googleMap,
-     label: "!",
-     animation: google.maps.Animation.DROP
-   
+     animation: google.maps.Animation.BOUNCE,
+     icon: "heart.png"
    });
 
    infoWindow.setPosition(coords);

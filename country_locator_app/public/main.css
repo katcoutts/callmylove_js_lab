@@ -1,4 +1,12 @@
 #map {
-  width: 500px;
+  width: 800px;
   height: 500px;
+  margin-top: 40px;
+}
+
+body{
+  font-family: Tahoma, Geneva, sans-serif;
+  background-color: LightPink;
+  font-size: 25px;
+  color: #191970;
 }
