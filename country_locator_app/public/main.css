@@ -8,5 +8,12 @@ body{
   font-family: Tahoma, Geneva, sans-serif;
   background-color: LightPink;
   font-size: 25px;
-  color: #191970;
+  color: white;
+}
+
+#distance{
+  font-size: 40px;
+  color: crimson;
+  display: block;
+  margin-top: 30px;
 }
